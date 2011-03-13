@@ -16,13 +16,16 @@ Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/HTTP/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	36c8048775b8b53a6fb7c9d781658926
 URL:		http://search.cpan.org/dist/HTTP-Daemon/
-BuildRequires:	perl-devel >= 1:5.8.0
+BuildRequires:	perl-devel >= 1:5.8.8
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
 BuildRequires:	perl-HTTP-Date >= 6
 BuildRequires:	perl-HTTP-Message >= 6
-#BuildRequires:	perl(LWP::MediaTypes) >= 6
+BuildRequires:	perl-LWP-MediaTypes >= 6
 %endif
+Requires:	perl-HTTP-Date >= 6
+Requires:	perl-HTTP-Message >= 6
+Requires:	perl-LWP-MediaTypes >= 6
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -58,6 +61,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Changes README
+%doc Changes
 %{perl_vendorlib}/HTTP/Daemon.pm
 %{_mandir}/man3/HTTP::Daemon.3pm*
