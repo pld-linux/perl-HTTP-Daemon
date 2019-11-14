@@ -8,13 +8,13 @@
 Summary:	HTTP::Daemon - a simple HTTP server class
 Summary(pl.UTF-8):	HTTP::Daemon - klasa prostego serwera HTTP
 Name:		perl-HTTP-Daemon
-Version:	6.01
+Version:	6.06
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/HTTP/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	ed0ae02d25d7f1e89456d4d69732adc2
+# Source0-md5:	c5d6e1d84f7f09770d9ce52d4bddef59
 URL:		http://search.cpan.org/dist/HTTP-Daemon/
 BuildRequires:	perl-devel >= 1:5.8.8
 BuildRequires:	rpm-perlprov >= 4.1-13
