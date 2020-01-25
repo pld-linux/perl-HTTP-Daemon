@@ -4,7 +4,6 @@
 #
 %define		pdir	HTTP
 %define		pnam	Daemon
-%include	/usr/lib/rpm/macros.perl
 Summary:	HTTP::Daemon - a simple HTTP server class
 Summary(pl.UTF-8):	HTTP::Daemon - klasa prostego serwera HTTP
 Name:		perl-HTTP-Daemon
