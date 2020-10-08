@@ -1,26 +1,33 @@
 #
 # Conditional build:
-%bcond_without	tests		# do not perform "make test"
+%bcond_without	tests	# unit tests
 #
 %define		pdir	HTTP
 %define		pnam	Daemon
 Summary:	HTTP::Daemon - a simple HTTP server class
 Summary(pl.UTF-8):	HTTP::Daemon - klasa prostego serwera HTTP
 Name:		perl-HTTP-Daemon
-Version:	6.06
+Version:	6.12
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/HTTP/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	c5d6e1d84f7f09770d9ce52d4bddef59
-URL:		http://search.cpan.org/dist/HTTP-Daemon/
+# Source0-md5:	63674e3f81760a29075853413eb157d8
+URL:		https://metacpan.org/release/HTTP-Daemon
+BuildRequires:	perl-Module-Build-Tiny >= 0.034
 BuildRequires:	perl-devel >= 1:5.8.8
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	rpmbuild(macros) >= 1.745
 %if %{with tests}
+BuildRequires:	perl(IO::Socket::IP) >= 0.25
 BuildRequires:	perl-HTTP-Date >= 6
 BuildRequires:	perl-HTTP-Message >= 6
+BuildRequires:	perl-HTTP-Tiny >= 0.042
 BuildRequires:	perl-LWP-MediaTypes >= 6
+BuildRequires:	perl-Test-Needs
+BuildRequires:	perl-Test-Simple >= 0.98
+BuildRequires:	perl-URI
 %endif
 Requires:	perl-HTTP-Date >= 6
 Requires:	perl-HTTP-Message >= 6
@@ -60,6 +67,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Changes
+%doc Changes README
 %{perl_vendorlib}/HTTP/Daemon.pm
 %{_mandir}/man3/HTTP::Daemon.3pm*
