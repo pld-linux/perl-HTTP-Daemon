@@ -7,13 +7,13 @@
 Summary:	HTTP::Daemon - a simple HTTP server class
 Summary(pl.UTF-8):	HTTP::Daemon - klasa prostego serwera HTTP
 Name:		perl-HTTP-Daemon
-Version:	6.16
+Version:	6.17
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	https://www.cpan.org/modules/by-module/HTTP/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	51425462790165aeafc2819a7359706f
+# Source0-md5:	14f98fd61159ec4740a21781b787944e
 URL:		https://metacpan.org/dist/HTTP-Daemon
 BuildRequires:	perl-ExtUtils-MakeMaker
 BuildRequires:	perl-Module-Build-Tiny >= 0.034
@@ -52,17 +52,17 @@ na niej wykonywać bezpośrednio także operacje typowe dla gniazd.
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-%{__perl} Makefile.PL \
-	INSTALLDIRS=vendor
-%{__make}
+%{__perl} Build.PL \
+	--destdir=$RPM_BUILD_ROOT \
+	--installdirs=vendor
+./Build
 
-%{?with_tests:%{__make} test}
+%{?with_tests:./Build test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} pure_install \
-	DESTDIR=$RPM_BUILD_ROOT
+./Build install
 
 %clean
 rm -rf $RPM_BUILD_ROOT
