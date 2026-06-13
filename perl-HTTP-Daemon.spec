@@ -12,7 +12,7 @@ Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	https://www.cpan.org/modules/by-module/HTTP/%{pdir}-%{pnam}-%{version}.tar.gz
+Source0:	https://www.cpan.org/modules/by-module/HTTP/OALDERS/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	14f98fd61159ec4740a21781b787944e
 URL:		https://metacpan.org/dist/HTTP-Daemon
 BuildRequires:	perl-ExtUtils-MakeMaker
@@ -24,7 +24,6 @@ BuildRequires:	rpmbuild(macros) >= 1.745
 BuildRequires:	perl(IO::Socket::IP) >= 0.32
 BuildRequires:	perl-HTTP-Date >= 6
 BuildRequires:	perl-HTTP-Message >= 6
-BuildRequires:	perl-HTTP-Tiny >= 0.042
 BuildRequires:	perl-LWP-MediaTypes >= 6
 BuildRequires:	perl-MIME-Base64
 BuildRequires:	perl-Test-Needs
@@ -55,6 +54,7 @@ na niej wykonywać bezpośrednio także operacje typowe dla gniazd.
 %{__perl} Build.PL \
 	--destdir=$RPM_BUILD_ROOT \
 	--installdirs=vendor
+
 ./Build
 
 %{?with_tests:./Build test}
